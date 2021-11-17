@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policy version="0.2.0"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+    <enclaves>
+        <enclave path="/dummy_robot_bringup/dummy_joint_states">
+            <profiles>
+                <profile ns="/" node="dummy_joint_states">
+                    <topics publish="ALLOW" >
+                        <topic>joint_states</topic>
+                        <topic>rosout</topic>
+                    </topics>
+                    <topics publish="ALLOW" subscribe="ALLOW" >
+                        <topic>parameter_events</topic>
+                    </topics>
+                </profile>
+                <profile ns="/dummy_joint_states" node="dummy_joint_states">
+                    <services reply="ALLOW" request="ALLOW">
+                        <service>get_parameters</service>
+                        <service>get_parameter_types</service>
+                        <service>set_parameters</service>
+                        <service>set_parameters_atomically</service>
+                        <service>describe_parameters</service>
+                        <service>list_parameters</service>
+                    </services>
+                </profile>
+            </profiles>
+        </enclave>
+        <enclave path="/dummy_robot_bringup/robot_state_publisher">
+            <profiles>
+                <profile ns="/" node="robot_state_publisher">
+                    <topics publish="ALLOW" >
+                        <topic>tf</topic>
+                        <topic>tf_static</topic>
+                        <topic>rosout</topic>
+                        <topic>robot_description</topic>
+                    </topics>
+                    <topics subscribe="ALLOW" >
+                        <topic>joint_states</topic>
+                    </topics>
+                    <topics publish="ALLOW" subscribe="ALLOW" >
+                        <topic>parameter_events</topic>
+                    </topics>
+                </profile>
+                <profile ns="/robot_state_publisher" node="robot_state_publisher">
+                    <services reply="ALLOW" request="ALLOW">
+                        <service>get_parameters</service>
+                        <service>get_parameter_types</service>
+                        <service>set_parameters</service>
+                        <service>set_parameters_atomically</service>
+                        <service>describe_parameters</service>
+                        <service>list_parameters</service>
+                    </services>
+                </profile>
+            </profiles>
+        </enclave>
+        <enclave path="/dummy_robot_bringup/dummy_laser">
+            <profiles>
+                <profile ns="/" node="dummy_laser">
+                    <topics publish="ALLOW" >
+                        <topic>scan</topic>
+                        <topic>rosout</topic>
+                    </topics>
+                    <topics publish="ALLOW" subscribe="ALLOW" >
+                        <topic>parameter_events</topic>
+                    </topics>
+                </profile>
+                <profile ns="/dummy_laser" node="dummy_laser">
+                    <services reply="ALLOW" request="ALLOW">
+                        <service>get_parameters</service>
+                        <service>get_parameter_types</service>
+                        <service>set_parameters</service>
+                        <service>set_parameters_atomically</service>
+                        <service>describe_parameters</service>
+                        <service>list_parameters</service>
+                    </services>
+                </profile>
+            </profiles>
+        </enclave>
+        <enclave path="/dummy_robot_bringup/dummy_map_server">
+            <profiles>
+                <profile ns="/" node="dummy_map_server">
+                    <topics publish="ALLOW" >
+                        <topic>map</topic>
+                        <topic>rosout</topic>
+                    </topics>
+                    <topics publish="ALLOW" subscribe="ALLOW" >
+                        <topic>parameter_events</topic>
+                    </topics>
+                </profile>
+                <profile ns="/dummy_map_server" node="dummy_map_server">
+                    <services reply="ALLOW" request="ALLOW">
+                        <service>get_parameters</service>
+                        <service>get_parameter_types</service>
+                        <service>set_parameters</service>
+                        <service>set_parameters_atomically</service>
+                        <service>describe_parameters</service>
+                        <service>list_parameters</service>
+                    </services>
+                </profile>
+            </profiles>
+        </enclave>
+        <enclave path="/dummy_robot_bringup/rviz2">
+            <profiles>
+                <profile ns="/" node="rviz2">
+                    <topics subscribe="ALLOW" >
+                        <topic>scan</topic>
+                        <topic>tf</topic>
+                        <topic>tf_static</topic>
+                        <topic>map</topic>
+                    </topics>
+                    <topics publish="ALLOW" subscribe="ALLOW" >
+                        <topic>parameter_events</topic>
+                    </topics>
+                    <topics publish="ALLOW" >
+                        <topic>rosout</topic>
+                        <topic>initialpose</topic>
+                        <topic>goal_pose</topic>
+                        <topic>clicked_point</topic>
+                    </topics>
+                </profile>
+                <profile ns="/rviz" node="rviz2">
+                    <services reply="ALLOW" request="ALLOW">
+                        <service>get_parameters</service>
+                        <service>get_parameter_types</service>
+                        <service>set_parameters</service>
+                        <service>set_parameters_atomically</service>
+                        <service>describe_parameters</service>
+                        <service>list_parameters</service>
+                    </services>
+                </profile>
+            </profiles>
+        </enclave>
+    </enclaves>
+</policy>
